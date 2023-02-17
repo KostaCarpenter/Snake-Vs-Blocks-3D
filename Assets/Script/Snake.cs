@@ -12,6 +12,7 @@ public class Snake : MonoBehaviour
     [SerializeField] PlayerInput Player;
     public ParticleSystem DestroyParts;
     public ParticleSystem DestroyBlock;
+    public GameSound gameSound;
 
     public int HitPoints { get; private set; }
     private List<Transform> SnakeBodyParts = new List<Transform>();
@@ -86,6 +87,7 @@ public class Snake : MonoBehaviour
 
             Progress.SnakeLance = HitPoints;
             Destroy(collision.gameObject);
+            gameSound.TakeFoodAudio();
         }
     }
 
@@ -97,6 +99,8 @@ public class Snake : MonoBehaviour
             block.ApplyDamage();
             RemoveBodyPart();
             CollisionTime = CollisionInterval;
+            gameSound.DestroyBlock();
+
             Progress.SnakeLance = HitPoints;
             if (block.HitPoints == 0)
                 DestroyBlock.Play();

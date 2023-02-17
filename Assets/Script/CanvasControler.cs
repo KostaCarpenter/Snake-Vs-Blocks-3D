@@ -17,7 +17,7 @@ public class CanvasControler : MonoBehaviour
     private void Awake()
     {
         LevelCount.text = $"Level : {SceneManager.GetActiveScene().buildIndex + 1}";
-        ComplitedLevel.text = $"Level : {SceneManager.GetActiveScene().buildIndex + 1} Complited!";
+        ComplitedLevel.text = $"Level : {SceneManager.GetActiveScene().buildIndex + 1} Completed!";
     }
 
 
